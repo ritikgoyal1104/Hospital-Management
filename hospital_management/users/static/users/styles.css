@@ -29,8 +29,10 @@ footer {
   margin-right: auto;
   max-width: 20%;
   max-height: auto;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  text-decoration: none;
 }
-
 
 
 .nav__links , 
@@ -46,7 +48,7 @@ footer {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
   /* color: #edf0f1; */
-  color: #24252a;
+  color: white;
   text-decoration: none;
 }
 
@@ -63,6 +65,7 @@ footer {
 .nav__links li a:hover , 
 .nav__links1 li a:hover {
   color: #0088a9;
+  text-decoration: none;
 }
 
 .cta {
@@ -77,8 +80,12 @@ footer {
 
 .cta:hover {
   background-color: rgba(0, 136, 169, 0.8);
+  text-decoration: none
 }
-
+.logo:hover {
+  background-color: rgba(0, 136, 169, 0.8);
+  text-decoration: none
+}
 /* Mobile Nav */
 
 .menu {

@@ -17,13 +17,14 @@
     </head>
     <body>
         <header>
-            <a class="logo" href="/"><h5>Hospital Management</h5></a>
+            <span class="logo"><h4>Healthcare</h4></span>
             <nav>
                 <ul class="nav__links">
-                    <li><a href="#"><h5>Past Record</h5></a></li>
-                    <li><a href="#"><h5>Find a Doctor</h5></a></li>
-                    <li><a href="#"><h5>Profile</h5></a></li>
-                    <li><a href="#"><h5>Log Out</h5></a></li>
+                    <li><a href="{% url 'home_page' %}"><h6>Home</h6></a></li>
+                    <li><a href="#"><h6>Past Record</h6></a></li>
+                    <li><a href="#"><h6>Find a Doctor</h6></a></li>
+                    <li><a href="#"><h6>Profile</h6></a></li>
+                    <li><a href="{% url 'logout' %}"><h6>Log Out</h6></a></li>
                 </ul>
             </nav>
             
@@ -32,10 +33,11 @@
         <div id="mobile__menu" class="overlay">
             <a class="close">&times;</a>
             <div class="overlay__content">
+                <a href="{% url 'home_page' %}">Home</a>
                 <a href="#">Past Record</a>
                 <a href="#">Find A Doctor</a>
                 <a href="#">Profile</a>
-                <a href="#">Log Out</a>
+                <a href="{% url 'logout' %}">Log Out</a>
             </div>
         </div>
         <script type="text/javascript" src="{% static 'users/mobile.js' %}"></script>

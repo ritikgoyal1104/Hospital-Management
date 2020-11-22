@@ -3,22 +3,42 @@
 {% block body %}
 <style>
 body {
-  background-image: url('{% static 'users/img_2.jpg' %}');
+  background-image: url('{% static 'users/bg_home.jpg' %}');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  
+}
+.making-healthcare {
+  padding-left: 10%;
+  padding-top: 9%;
+  font-size: 38px;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  text-decoration: none;
+}
+.making-healthcare2 {
+  padding-left: 10%;
+  padding-top: 0px;
+  font-size: 16px;
+  max-width: 48%;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  text-decoration: none;
+}  
+.appbtn {
+  padding-left: 8%;
+  padding-top: 13px;
+}  
 }
 </style>
 
-
-<div class="card mx-5 my-5" style="width: 18rem;">
+<div class="making-healthcare">Making Healthcare Better<br>Together</div>
+<br>
+<div class="making-healthcare2">We’ve always had one focus in mind: Provide high-quality products, doctor-formulated, clinically proven and condition-specific, that are not only good for you but deliver real results to help you reach your health and vitality goals.</div>
+<!-- <div class="card mx-5 my-5" style="width: 18rem;">
   <img src="{% static 'users/bookappoint.png' %}" class="card-img" alt="...">
+</div> -->
+<div class="appbtn">
+<a class="cta" href="#">Book An Appointment</a>
 </div>
-
-
-  
-
-
-
 {% endblock %}
