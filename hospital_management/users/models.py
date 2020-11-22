@@ -31,9 +31,9 @@ class Disease(models.Model):
 
 class Appointments(models.Model):
     patient=models.ForeignKey(User, on_delete=models.CASCADE, related_name="appointments")
-    doctor=models.ForeignKey(User, on_delete=models.CASCADE, related_name="appointments")
-    disease=models.ManyToManyField(Disease, related_name="appointments")
-    prescription=models.Textfield()
+    doctor=models.ForeignKey(User, on_delete=models.CASCADE, related_name="checkups")
+    disease=models.ManyToManyField(Disease)
+    prescription=models.TextField()
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
 
