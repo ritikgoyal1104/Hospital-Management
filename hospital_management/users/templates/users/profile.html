@@ -1,0 +1,59 @@
+{% extends "users/layout.html" %}
+{% load static %}
+{% block body %}
+
+<style>
+body {
+  background-image: url('{% static 'users/bg_home.jpg' %}');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.card {
+  background:inherit;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+</style>
+
+
+<div class="container mx-auto" style="width: 900px;">
+
+    <div class="card mb-3" style="max-width: 840px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="{% static 'users/profile.jpg' %}" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h2 class="card-title">Abhishek Agarwal</h2>
+        
+        <div class="row">
+        
+          <div class="col-4"><h5>Patient Id</h5></div>
+          <div class="col"><h5>: 12 </h5></div>
+          <div class="w-100"></div>
+          <div class="col-4"><h5>Contact No.</h5></div>
+          <div class="col"><h5>: 1234567890</h5></div>
+          <div class="w-100"></div>
+          <div class="col-4"><h5>Gender</h5></div>
+          <div class="col"><h5>: Male</h5></div>
+          <div class="w-100"></div>
+          <div class="col-4"><h5>Address</h5></div>
+          <div class="col"><h5>: Kolkata</h5></div>
+          <div class="w-100"></div>
+          <div class="col-4"><h5>Date Of Birth</h5></div>
+          <div class="col"><h5>: 01/01/2000</h5></div>
+        
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+{% endblock %}

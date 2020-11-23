@@ -1,0 +1,76 @@
+{% extends "users/layout.html" %}
+{% load static %}
+{% block body %}
+
+<style>
+body {
+  background-image: url('{% static 'users/bg_home.jpg' %}');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.info,form {
+  padding-left: 10%;
+  padding-top: 20px;
+  font-size: 25px;
+  max-width: 100%;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  text-decoration: none;
+}  
+</style>
+
+<div class="info"> You are about to make an appointment for Dr.Someone <br>
+Please select the date and time slot for your appointment<br>
+</div>
+
+<form>
+<div class="form row">
+  <div class="form-row">
+    <div class="col-md-3 mb-3">
+      <label for="validationServer04">Day</label>
+      <select class="custom-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+        <option selected disabled value="">Choose...</option>
+        <option>...</option>
+      </select>
+      <div id="validationServer04Feedback" class="invalid-feedback">
+        Please select a valid day.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationServer04">Month</label>
+      <select class="custom-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+        <option selected disabled value="">Choose...</option>
+        <option>...</option>
+      </select>
+      <div id="validationServer04Feedback" class="invalid-feedback">
+        Please select a valid Month.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationServer04">Year</label>
+      <select class="custom-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+        <option selected disabled value="">Choose...</option>
+        <option>...</option>
+      </select>
+      <div id="validationServer04Feedback" class="invalid-feedback">
+        Please select a valid Year.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationServer04">Slot</label>
+      <select class="custom-select is-invalid" id="validationServer04" aria-describedby="validationServer04Feedback" required>
+        <option selected disabled value="">Choose...</option>
+        <option>...</option>
+      </select>
+      <div id="validationServer04Feedback" class="invalid-feedback">
+        Please select a valid Slot.
+      </div>
+    </div>
+    
+  </div>
+</div>
+  <button class="btn btn-primary" type="submit">Submit form</button>
+</form>
+
+{% endblock %}

@@ -21,9 +21,9 @@
             <nav>
                 <ul class="nav__links">
                     <li><a href="{% url 'home_page' %}"><h6>Home</h6></a></li>
-                    <li><a href="#"><h6>Past Record</h6></a></li>
-                    <li><a href="#"><h6>Find a Doctor</h6></a></li>
-                    <li><a href="#"><h6>Profile</h6></a></li>
+                    {% comment %} <li><a href="#"><h6>Past Record</h6></a></li> {% endcomment %}
+                    <li><a href="{% url 'doctors' %}"><h6>Find a Doctor</h6></a></li>
+                    <li><a href="{% url 'profile' %}"><h6>Profile</h6></a></li>
                     <li><a href="{% url 'logout' %}"><h6>Log Out</h6></a></li>
                 </ul>
             </nav>
@@ -34,9 +34,9 @@
             <a class="close">&times;</a>
             <div class="overlay__content">
                 <a href="{% url 'home_page' %}">Home</a>
-                <a href="#">Past Record</a>
-                <a href="#">Find A Doctor</a>
-                <a href="#">Profile</a>
+                {% comment %} <a href="#">Past Record</a> {% endcomment %}
+                <a href="{% url 'doctors' %}">Find A Doctor</a>
+                <a href="{% url 'profile' %}">Profile</a>
                 <a href="{% url 'logout' %}">Log Out</a>
             </div>
         </div>
