@@ -5,9 +5,9 @@ from django.contrib.auth import authenticate,login,logout
 from .models import *
 
 def home_page(request):
-  if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse("login"))
-  return render(request,"users/home_page.html")
+   if not request.user.is_authenticated:
+         return HttpResponseRedirect(reverse("login"))
+   return render(request,"users/home_page.html")
 
 def login_view(request):
     if request.method=="POST":

@@ -1,5 +1,12 @@
 {% extends "users/layout_login.html" %}
+{% load static %}
 {% block body %}
+<style>
+    ::placeholder { 
+        color: rgba(0, 0, 0, 0.596);
+        opacity: 1;
+      }
+</style>
    <div class="login-box">
        <h1>Login</h1>
     <form action="{% url 'login' %}" method="POST">
