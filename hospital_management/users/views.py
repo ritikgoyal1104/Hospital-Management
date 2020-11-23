@@ -25,8 +25,16 @@ def logout_view(request):
     logout(request)
     return render(request,"users/login.html")  
 
+doctor=Doctor.objects.all()
 def doctors(request):
-    return render(request,"users/doctors.html")
+    if request.method == "POST":
+        speciality = request.POST["speciality"]
+        a=list()
+        for doctors in doctor:
+            if doctors.department == speciality:
+                a.append(doctors)
+        return render(request,"users/doctors.html",{"doctor":a,"departments":departments})
+    return render(request,"users/doctors.html",{"doctor":doctor,"departments":departments})
 
 def profile(request):
     return render(request,"users/profile.html")

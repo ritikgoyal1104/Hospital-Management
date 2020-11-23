@@ -19,13 +19,16 @@ body {
 </style>
 <div class="mx-auto my-4" style="width: 500px;">
   
-<form class="form-inline">
+<form action="{% url 'doctors' %}" method="POST" class="form-inline">
+{% csrf_token %}
   <label class="my-1 mr-2" for="inlineFormCustomSelectPref" >Speciality</label>
-  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+  <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="speciality">
     <option selected>Choose Speciality</option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
+    {% for department in departments%}
+    <option value={{department}}> 1 {{departmnent}}</option>
+    {% endfor %}
+    {% comment %} <option value="2">Two</option>
+    <option value="3">Three</option> {% endcomment %}
   </select>
   <button type="submit" class="btn btn-primary my-1">Submit</button>
 </form>
@@ -33,21 +36,22 @@ body {
 <div class="container">
   <div class="row">
     
-
+{% for doctors in doctor %}
 <div class="card mx-1 my-2" style="width: 17rem;">
   <img src="{% static 'users/doc.png' %}" class="card-img-top" alt="...">
   <ul class="list-group list-group-flush">
-    <li class="list-group-item " style="text-align:center">Dr. Someone</li>
+    <li class="list-group-item " style="text-align:center">Dr. {{doctors.user.first_name}} {{doctors.user.last_name}}</li>
     </ul>
   <ul class="list-group list-group-flush">
     <li class="list-group-item " style="text-align:center">
-    Consultant<br> Pulmonology
+    Consultant<br> {{doctors.department}}
     </li>
   </ul>
   <div class="card-body">
     <a href="{% url 'appointment' %}" class="card-link ml-5 pl-2">Book Appointmnet</a>
   </div>
 </div>
+{% endfor %}
 <div class="card mx-1 my-2" style="width: 17rem;">
   <img src="{% static 'users/doc.png' %}" class="card-img-top" alt="...">
   <ul class="list-group list-group-flush">
