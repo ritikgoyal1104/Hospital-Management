@@ -35,5 +35,6 @@ def appointment(request):
     appointments=Appointments.objects.all()
     user = User.objects.get(username=request.user)
     patient=user.patient
+    appointments=patient.appointments
     context={"appointments":appointments,"patient":patient}
     return render(request,"users/appointment.html",context=context)

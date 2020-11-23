@@ -18,7 +18,7 @@ class Departments(models.Model):
     department=models.CharField(max_length=50,default="Dept.")
 
     def __str__(self):
-        return f'{self.department}'    
+        return f'{self.department}'   
 
 class Doctor(models.Model):
     user=OneToOneField(User, on_delete=models.CASCADE)
