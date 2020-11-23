@@ -5,7 +5,7 @@ import datetime
 
 # Create your models here.
 class Patient(models.Model):
-    user=OneToOneField(User, on_delete=models.CASCADE)
+    user=OneToOneField(User, on_delete=models.CASCADE,related_name="patient")
     contact=models.CharField(max_length=10,null=True)
     gender=models.CharField(max_length=10,null=True)
     address=models.CharField(max_length=50,null=True)
@@ -14,18 +14,16 @@ class Patient(models.Model):
     def __str__(self):
         return f'{self.user.first_name} {self.user.last_name}'
 
-departments=[('Cardiologist','Cardiologist'),
-('Dermatologists','Dermatologists'),
-('Emergency Medicine Specialists','Emergency Medicine Specialists'),
-('Allergists/Immunologists','Allergists/Immunologists'),
-('Anesthesiologists','Anesthesiologists'),
-('Colon and Rectal Surgeons','Colon and Rectal Surgeons')
-]
+class Departments(models.Model):
+    department=models.CharField(max_length=50,default="Dept.")
+
+    def __str__(self):
+        return f'{self.department}'    
 
 class Doctor(models.Model):
     user=OneToOneField(User, on_delete=models.CASCADE)
     contact=models.CharField(max_length=10)
-    department=models.CharField(max_length=40,default="General")
+    department=models.ForeignKey(Departments, on_delete=models.CASCADE, related_name="doctors",null=True)
 
     def __str__(self):
         return f'{self.user.first_name} {self.user.last_name}'
@@ -57,7 +55,7 @@ class Appointments(models.Model):
     slot=models.TimeField(null=True)
 
     def __str__(self):
-        return f'{self.patient.first_name} {self.patient.user.last_name} consulted {self.doctor.user.first_name} {self.doctor.user.last_name}'
+        return f'{self.patient.user.first_name} {self.patient.user.last_name} consulted {self.doctor.user.first_name} {self.doctor.user.last_name}'
 
 class TempAppointments(models.Model):
     patient=models.ForeignKey(Patient, on_delete=models.CASCADE)
