@@ -24,3 +24,12 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return render(request,"users/login.html")  
+
+def doctors(request):
+    return render(request,"users/doctors.html")
+
+def profile(request):
+    return render(request,"users/profile.html")
+
+def appointment(request):
+    return render(request,"users/appointment.html")
