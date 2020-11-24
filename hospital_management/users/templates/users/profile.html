@@ -30,7 +30,7 @@ body {
     <div class="card mb-3" style="max-width: 840px;">
   <div class="row no-gutters">
     <div class="col-md-4">
-      <img src="{% static 'users/profile.jpg' %}" class="card-img" alt="...">
+      <img src="{% static 'users/profile.png' %}" class="card-img" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -75,9 +75,9 @@ body {
       
       {% for appointment in appointments %}
             <tr>
-                <th scope="row">{{appointment.id}}</th>
-                <td>{{appointment.checkups.user.first_name}} {{appointment.checkups.user.last_name}}</td>
-                <td>{{appointment.slot}}</td>
+                <th scope="row" style="font-family: 'Montserrat', sans-serif;color:black;font-size:larger;">{{appointment.id}}</th>
+                <td style="font-family: 'Montserrat', sans-serif;color:black;font-size:larger;">{{appointment.doctor.user.first_name}} {{appointment.doctor.user.last_name}}</td>
+                <td style="font-family: 'Montserrat', sans-serif;color:black;font-size:larger;">{{appointment.slot}}</td>
             </tr>
       {% endfor %}
 

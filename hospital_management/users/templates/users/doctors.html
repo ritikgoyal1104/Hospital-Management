@@ -48,11 +48,11 @@ body {
     </li>
   </ul>
   <div class="card-body">
-    <a href="{% url 'appointment' %}" class="card-link ml-5 pl-2">Book Appointmnet</a>
+    <a href="{% url 'appointment' doctors.id %}" class="card-link ml-5 pl-2">Book Appointmnet</a>
   </div>
 </div>
 {% endfor %}
-<div class="card mx-1 my-2" style="width: 17rem;">
+{% comment %} <div class="card mx-1 my-2" style="width: 17rem;">
   <img src="{% static 'users/doc.png' %}" class="card-img-top" alt="...">
   <ul class="list-group list-group-flush">
     <li class="list-group-item " style="text-align:center">Dr. Someone</li>
@@ -110,6 +110,6 @@ body {
   <div class="card-body">
     <a href="#" class="card-link ml-5 pl-2">Book Appointmnet</a>
   </div>
-</div>
+</div> {% endcomment %}
 </div>
 {% endblock %}

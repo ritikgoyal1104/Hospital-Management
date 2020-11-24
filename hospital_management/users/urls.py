@@ -8,5 +8,5 @@ urlpatterns = [
   path("logout", views.logout_view, name="logout"),
   path("doctors",views.doctors , name="doctors"),
   path("profile",views.profile , name="profile"),
-  path("appointment",views.appointment , name="appointment"),
+  path("appointment/<int:doctor_id>",views.appointment , name="appointment")
 ]

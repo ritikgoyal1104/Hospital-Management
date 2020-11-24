@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import authenticate,login,logout
 from .models import *
+import datetime
 
 def home_page(request):
    if not request.user.is_authenticated:
@@ -45,5 +46,15 @@ def profile(request):
     return render(request,"users/profile.html",context=context)
 
 def appointment(request,doctor_id):
-    
-    return render(request,"users/appointment.html")
+    user = User.objects.get(username=request.user)
+    patient=user.patient
+
+    doctor = Doctor.objects.get(pk=doctor_id)
+    if request.method == "POST":
+        day = request.POST["day"]
+        month = request.POST["month"]
+        year = request.POST["year"]
+        tempappointment = TempAppointment.objects.create(patient=patient.id, doctor=doctor.id, slot=f'{year}-{month}-{day}', status=False)
+        tempappointment.save()
+        return render(request,"users/home_page.html")
+    return render(request,"users/appointment.html",{"doctor" : doctor})

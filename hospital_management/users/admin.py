@@ -7,6 +7,5 @@ from .models import *
 admin.site.register(Patient)
 admin.site.register(Doctor)
 admin.site.register(Appointments)
-admin.site.register(Slots)
 admin.site.register(Departments)
 admin.site.register(TempAppointments)
