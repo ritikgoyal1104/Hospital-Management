@@ -37,11 +37,11 @@ class Doctor(models.Model):
 
 
 class Slots(models.Model):
-    slot1=models.TimeField(null=True)
-    slot2=models.TimeField(null=True)
-    slot3=models.TimeField(null=True)
-    slot4=models.TimeField(null=True)
-    slot5=models.TimeField(null=True)
+    slot1=models.DateTimeField(null=True)
+    slot2=models.DateTimeField(null=True)
+    slot3=models.DateTimeField(null=True)
+    slot4=models.DateTimeField(null=True)
+    slot5=models.DateTimeField(null=True)
     doctor=OneToOneField(Doctor,on_delete=models.CASCADE,related_name="slots")
 
     def __str__(self):
@@ -52,7 +52,7 @@ class Appointments(models.Model):
     doctor=models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name="checkups")
     # disease=models.ManyToManyField(Disease)
     # prescription=models.TextField()
-    slot=models.TimeField(null=True)
+    slot=models.DateTimeField(null=True)
 
     def __str__(self):
         return f'{self.patient.user.first_name} {self.patient.user.last_name} consulted {self.doctor.user.first_name} {self.doctor.user.last_name}'
@@ -62,7 +62,7 @@ class TempAppointments(models.Model):
     doctor=models.ForeignKey(Doctor, on_delete=models.CASCADE)
     # disease=models.ManyToManyField(Disease)
     # prescription=models.TextField()
-    slot=models.TimeField()
+    slot=models.DateTimeField()
     status=models.BooleanField(default=False)
 
     def __str__(self):

@@ -17,7 +17,7 @@ body {
   text-decoration: none;
 }
 </style>
-<div class="mx-auto my-4" style="width: 500px;">
+<div class="mx-auto my-4" style="width: 600px;">
   
 <form action="{% url 'doctors' %}" method="POST" class="form-inline">
 {% csrf_token %}
@@ -25,7 +25,7 @@ body {
   <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="speciality">
     <option selected>Choose Speciality</option>
     {% for department in departments%}
-    <option value={{department}}> 1 {{departmnent}}</option>
+    <option value="speciality">{{department.department}}</option>
     {% endfor %}
     {% comment %} <option value="2">Two</option>
     <option value="3">Three</option> {% endcomment %}
