@@ -66,4 +66,4 @@ class TempAppointments(models.Model):
     status=models.BooleanField(default=False)
 
     def __str__(self):
-        return f'{self.patient.first_name} {self.patient.user.last_name} wants to consult {self.doctor.user.first_name} {self.doctor.user.last_name}'
+        return f'{self.patient.user.first_name} {self.patient.user.last_name} wants to consult {self.doctor.user.first_name} {self.doctor.user.last_name}'

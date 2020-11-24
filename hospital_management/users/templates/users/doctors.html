@@ -25,10 +25,8 @@ body {
   <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="speciality">
     <option selected>Choose Speciality</option>
     {% for department in departments%}
-    <option value="speciality">{{department.department}}</option>
+    <option value={{department.id}}>{{department.id}} : {{department.department}}</option>
     {% endfor %}
-    {% comment %} <option value="2">Two</option>
-    <option value="3">Three</option> {% endcomment %}
   </select>
   <button type="submit" class="btn btn-primary my-1">Submit</button>
 </form>

@@ -32,10 +32,13 @@ def doctors(request):
     department=Departments.objects.all()
     if request.method == "POST":
         speciality = request.POST["speciality"]
-        department=Departments.objects.filter(department=speciality)
+        # s1=str(speciality)
+        # spec=int(s1)
+        departmentt=Departments.objects.get(id=speciality)
+        # doctor=Doctor.objects.get(department=departmentt)
         # for dept in department:
         #     if "Cardiologists" == dept.department:
-        return render(request,"users/doctors.html",{"doctor":department.doctors,"departments":department})
+        return render(request,"users/doctors.html",{"doctor":departmentt.doctors.all(),"departments":department})
     return render(request,"users/doctors.html",{"doctor":doctor,"departments":department})
 
 def profile(request):
@@ -54,7 +57,8 @@ def appointment(request,doctor_id):
         day = request.POST["day"]
         month = request.POST["month"]
         year = request.POST["year"]
-        tempappointment = TempAppointment.objects.create(patient=patient.id, doctor=doctor.id, slot=f'{year}-{month}-{day}', status=False)
+        d = datetime.date(int(year),int(month), int(day)) 
+        tempappointment = TempAppointments.objects.create(patient=patient, doctor=doctor, slot=d, status=False)
         tempappointment.save()
         return render(request,"users/home_page.html")
     return render(request,"users/appointment.html",{"doctor" : doctor})
